@@ -1,7 +1,7 @@
 name: based_avatar
 description: A Based Widget For Building More Useful Avatar
 version: 1.0.3
-homepage: https://github.com/Cierra-Runis/based_avatar
+homepage: https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_avatar
 
 environment:
   sdk: ">=3.1.2 <4.0.0"

@@ -1,7 +1,7 @@
 <div align="center">
-  <img id="based_dock_scaffold" width="96" alt="based_dock_scaffold" src="https://raw.githubusercontent.com/Cierra-Runis/based_dock_scaffold/master/.github/icon.svg">
+  <img id="based_dock_scaffold" width="96" alt="based_dock_scaffold" src="https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_dock_scaffold/icon.svg">
   <p>『 based_dock_scaffold - Based Dock Scaffold! 』</p>
-  <a href="https://github.com/Cierra-Runis/based_dock_scaffold/blob/master/README_zh.md">中文 Readme</a>
+  <a href="https://github.com/Cierra-Runis/based_widget/blob/master/packages/based_dock_scaffold/README_zh.md">中文 Readme</a>
 </div>
 
 `Latest update: 2023-07-25 23:54:08`
@@ -28,7 +28,7 @@ A Based Dock Scaffold Widget, Which Helps You Create A Scaffold With A IPad-Like
 
 # 📸 Screenshots
 
-![screenshots](https://raw.githubusercontent.com/Cierra-Runis/based_dock_scaffold/master/.github/screenshot.gif)
+![screenshots](https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_dock_scaffold/screenshot.gif)
 
 Or try out [live example app](https://note-of-me.top/based_dock_scaffold/)
 
