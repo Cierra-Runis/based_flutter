@@ -71,7 +71,7 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
                     ),
                   ),
                   BasedListTile(
-                    leadingIcon: Icons.qr_code_rounded,
+                    leadingIcon: Icons.splitscreen_rounded,
                     titleText: 'BasedSplitView',
                     onTap: () => context.push(
                       const BasedSplitViewPage(),

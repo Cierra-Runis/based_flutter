@@ -1,6 +1,6 @@
 name: based_dock_scaffold
 description: A Based Dock Scaffold Widget, Which Helps You Create A Scaffold With A IPad-Like Dock
-version: 1.0.2+1
+version: 1.0.3
 homepage: https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_dock_scaffold
 
 environment:
