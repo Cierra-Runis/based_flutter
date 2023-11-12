@@ -3,7 +3,6 @@ name: based_widget
 on:
   push:
     branches: [master]
-    paths: ['packages/**','example/**']
 
 jobs:
   build:
