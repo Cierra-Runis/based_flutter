@@ -120,8 +120,8 @@ class BasedBatteryIndicator extends StatelessWidget {
   }
 
   Widget _buildKnob(BuildContext context, ColorScheme colorScheme) {
-    final double knobHeight = trackHeight / 3;
-    final double knobWidth = knobHeight / 2;
+    final knobHeight = trackHeight / 3;
+    final knobWidth = knobHeight / 2;
     final borderColor = colorScheme.outline;
 
     return Padding(

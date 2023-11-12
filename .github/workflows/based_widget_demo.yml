@@ -1,8 +1,9 @@
-name: Gh-Pages
+name: based_widget_demo
 
 on:
   push:
-    branches: [main]
+    branches: [master]
+    paths: ['packages/**','example/**']
 
 jobs:
   build:
@@ -14,4 +15,4 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
           workingDir: example
-          baseHref: /based_avatar/
+          baseHref: /based_widget_demo/

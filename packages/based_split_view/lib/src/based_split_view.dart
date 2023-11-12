@@ -34,7 +34,7 @@ class BasedSplitView extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        final NavigatorState? navigator = key.currentState;
+        final navigator = key.currentState;
         if (navigator == null || !navigator.canPop()) {
           return true;
         }
@@ -75,7 +75,7 @@ class BasedSplitView extends StatelessWidget {
                   },
                   pages: [MaterialPage(child: Center(child: rightPlaceholder))],
                 ),
-              )
+              ),
             ],
           );
         },

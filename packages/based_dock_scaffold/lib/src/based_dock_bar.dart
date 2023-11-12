@@ -15,8 +15,8 @@ class BasedDockBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
-    final double side = width / 2.8;
+    final width = MediaQuery.of(context).size.width;
+    final side = width / 2.8;
 
     return Align(
       alignment: Alignment.bottomCenter,

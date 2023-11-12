@@ -1,7 +1,7 @@
 name: based_qr
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Cierra-Runis/based_widget/packages/based_qr
 
 environment:
   sdk: ">=3.1.5 <4.0.0"

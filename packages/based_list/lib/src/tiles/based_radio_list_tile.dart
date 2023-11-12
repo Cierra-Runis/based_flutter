@@ -79,7 +79,7 @@ class BasedRadioListTile<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget leading = RadioTheme(
+    final leading = RadioTheme(
       data: radioThemeData,
       child: Radio<T>(
         value: value,

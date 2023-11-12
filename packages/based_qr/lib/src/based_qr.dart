@@ -53,14 +53,15 @@ class _BasedQrState extends State<BasedQr> {
       _time += 16 / 1000;
     });
 
-    Future.delayed(const Duration(milliseconds: 16), () => _timeLoop());
+    Future.delayed(const Duration(milliseconds: 16), _timeLoop);
   }
 
   @override
   void initState() {
     if (widget.colors.length != 4) {
       throw Exception(
-          'Condition colors.length == 4 is not true. Assign exactly 4 colors.');
+        'Condition colors.length == 4 is not true. Assign exactly 4 colors.',
+      );
     }
 
     super.initState();
@@ -166,7 +167,7 @@ class BasedQrPainter extends CustomPainter {
     shader.setFloat(5, options.speed);
 
     //colors
-    int i = 6;
+    var i = 6;
     for (final color in colors) {
       shader.setFloat(i, color.red / 255);
       i++;
@@ -191,9 +192,9 @@ class BasedQrPainter extends CustomPainter {
       );
 
       PrettyQrDecoration(
-              image: image, shape: PrettyQrSmoothSymbol(shader: shader))
-          .createPainter(() {})
-          .paint(paintingContext, configuration);
+        image: image,
+        shape: PrettyQrSmoothSymbol(shader: shader),
+      ).createPainter(() {}).paint(paintingContext, configuration);
     } finally {
       canvas.restore();
     }

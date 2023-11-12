@@ -89,7 +89,7 @@ class BasedCheckboxListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget leading = CheckboxTheme(
+    final leading = CheckboxTheme(
       data: checkboxThemeData,
       child: Checkbox(
         value: value,

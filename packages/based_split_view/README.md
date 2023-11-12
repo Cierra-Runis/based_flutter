@@ -1,5 +1,5 @@
 <div align="center">
-  <img id="based_split_view" width="96" alt="based_split_view" src="https://raw.githubusercontent.com/Cierra-Runis/based_split_view/main/.github/icon.svg">
+  <img id="based_split_view" width="96" alt="based_split_view" src="https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_split_view/icon.svg">
   <p>『 based_split_view - Based Split View! 』</p>
 </div>
 
@@ -29,7 +29,7 @@ Inspired by [flutter_split_view](https://pub.dev/packages/flutter_split_view)
 
 # 📸 Screenshots
 
-Try out [live example app](https://note-of-me.top/based_split_view/)
+Try out [live example app](https://note-of-me.top/based_widget_demo/)
 
 # 📦 How to use
 
@@ -44,7 +44,7 @@ BasedSplitView(
 ),
 ```
 
-- For more information, see the example code at [example](https://github.com/Cierra-Runis/based_split_view/blob/main/example/lib/main.dart)
+- For more information, see the example code at [example](https://github.com/Cierra-Runis/based_widget/blob/master/example/lib/main.dart)
 
 - Or check this [commit](https://github.com/Cierra-Runis/mercurius/commit/be0202811899307f42e66f148dc31e8400f29352) to use in a real product
 
@@ -58,12 +58,12 @@ None
 
 # 🧑‍💻 Contributor
 
-<a href="https://github.com/Cierra-Runis/based_split_view/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_split_view" />
+<a href="https://github.com/Cierra-Runis/based_widget/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_widget" />
 </a>
 
 # 🔦 Declaration
 
-[![License](https://img.shields.io/github/license/Cierra-Runis/based_split_view)](https://github.com/Cierra-Runis/based_split_view/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/Cierra-Runis/based_widget)](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE)
 
-This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_split_view/blob/main/LICENSE) for more details
+This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE) for more details

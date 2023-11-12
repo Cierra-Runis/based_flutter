@@ -110,10 +110,10 @@ class BasedAvatar extends StatelessWidget {
     required double distance,
     required Widget child,
   }) {
-    double x = alignment.x;
-    double y = alignment.y;
-    double zoomDistance = sqrt(x * x + y * y);
-    double ratio = zoomDistance != 0 ? distance / zoomDistance : 0;
+    final x = alignment.x;
+    final y = alignment.y;
+    final zoomDistance = sqrt(x * x + y * y);
+    final ratio = zoomDistance != 0 ? distance / zoomDistance : 0;
     return Positioned.fill(left: x * ratio, top: y * ratio, child: child);
   }
 

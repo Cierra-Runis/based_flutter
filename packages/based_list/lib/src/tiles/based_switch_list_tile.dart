@@ -88,7 +88,7 @@ class BasedSwitchListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget trailing = Transform.scale(
+    final trailing = Transform.scale(
       scale: scale,
       child: SwitchTheme(
         data: switchThemeData,

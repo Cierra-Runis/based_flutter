@@ -36,7 +36,7 @@ class BasedDockScaffoldState extends State<BasedDockScaffold> {
   }
 
   void showDock() {
-    OverlayState overlayState = Overlay.of(context);
+    final overlayState = Overlay.of(context);
     if (_overlayEntry.mounted) return;
     overlayState.insert(_overlayEntry);
     Future.delayed(const Duration(milliseconds: 100), () {
@@ -59,7 +59,7 @@ class BasedDockScaffoldState extends State<BasedDockScaffold> {
   }
 
   void _onVerticalDragStart(DragStartDetails details) {
-    OverlayState overlayState = Overlay.of(context);
+    final overlayState = Overlay.of(context);
     if (_overlayEntry.mounted) return;
     overlayState.insert(_overlayEntry);
   }
@@ -107,7 +107,7 @@ class BasedDockScaffoldState extends State<BasedDockScaffold> {
             onVerticalDragStart: _onVerticalDragStart,
             onVerticalDragUpdate: _onVerticalDragUpdate,
             onVerticalDragEnd: _onVerticalDragEnd,
-          )
+          ),
         ],
       ),
       floatingActionButton: widget.floatingActionButton,

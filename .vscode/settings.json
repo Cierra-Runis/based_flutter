@@ -13,7 +13,12 @@
     "**/.dart_tool": true,
     "**/.metadata": true,
     "**/pubspec.lock": true,
-    "**/*.iml": true
+    "**/*.iml": true,
+    "**/build": true
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": {},
+  "cSpell.words": [
+    "autofocus",
+    "dartpad"
+  ]
 }

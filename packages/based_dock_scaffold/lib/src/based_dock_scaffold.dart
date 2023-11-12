@@ -320,8 +320,7 @@ class BasedDockScaffold extends StatefulWidget {
   /// If there is no [BasedDockScaffold] in scope, then this will throw an exception.
   /// To return null if there is no [BasedDockScaffold], use [maybeOf] instead.
   static BasedDockScaffoldState of(BuildContext context) {
-    final BasedDockScaffoldState? result =
-        context.findAncestorStateOfType<BasedDockScaffoldState>();
+    final result = context.findAncestorStateOfType<BasedDockScaffoldState>();
     if (result != null) {
       return result;
     }
