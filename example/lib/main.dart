@@ -63,6 +63,20 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
                       const BasedDockScaffoldPage(),
                     ),
                   ),
+                  BasedListTile(
+                    leadingIcon: Icons.qr_code_rounded,
+                    titleText: 'BasedQr',
+                    onTap: () => context.push(
+                      const BasedQrPage(),
+                    ),
+                  ),
+                  BasedListTile(
+                    leadingIcon: Icons.qr_code_rounded,
+                    titleText: 'BasedSplitView',
+                    onTap: () => context.push(
+                      const BasedSplitViewPage(),
+                    ),
+                  ),
                 ],
               ),
             ],

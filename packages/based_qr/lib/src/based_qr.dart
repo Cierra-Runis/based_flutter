@@ -88,7 +88,7 @@ class _BasedQrState extends State<BasedQr> {
   @override
   Widget build(BuildContext context) {
     return ShaderBuilder(
-      assetKey: 'packages/mesh_gradient/shaders/animated_mesh_gradient.frag',
+      assetKey: 'packages/based_qr/shaders/animated_mesh_gradient.frag',
       (context, shader, child) {
         return CustomPaint(
           size: Size.infinite,
