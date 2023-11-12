@@ -1,0 +1,33 @@
+name: example
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.5 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  based_avatar:
+    path: ../packages/based_avatar
+  based_battery_indicator:
+    path: ../packages/based_battery_indicator
+  based_dock_scaffold:
+    path: ../packages/based_dock_scaffold
+  based_list:
+    path: ../packages/based_list
+  based_qr:
+    path: ../packages/based_qr
+  based_split_view:
+    path: ../packages/based_split_view
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
