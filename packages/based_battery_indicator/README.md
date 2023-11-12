@@ -1,7 +1,6 @@
 <div align="center">
   <img id="based_battery_indicator" width="96" alt="based_battery_indicator" src="https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_battery_indicator/icon.svg">
   <p>『 based_battery_indicator - Based Battery Indicator! 』</p>
-  <a href="https://github.com/Cierra-Runis/based_battery_indicator/blob/main/README_zh.md">中文 Readme</a>
 </div>
 
 `Latest update: 2023-07-27 16:30:49`
