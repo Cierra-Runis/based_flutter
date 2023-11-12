@@ -29,7 +29,7 @@ A Based Widget For Building More Useful Avatar
 
 WIP
 
-Or try out [live example app](http://note-of-me.top/based_widget_demo/)
+Or try out [live example app](http://note-of-me.top/based_widget/)
 
 # 📦 How to use
 

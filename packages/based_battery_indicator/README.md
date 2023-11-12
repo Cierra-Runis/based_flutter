@@ -32,7 +32,7 @@ Inspired by [cupertino_battery_indicator](https://pub.dev/packages/cupertino_bat
 
 ![screenshot](https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_battery_indicator/screenshot.gif)
 
-Or try out [live example app](https://note-of-me.top/based_widget_demo/)
+Or try out [live example app](https://note-of-me.top/based_widget/)
 
 # 📦 How to use
 

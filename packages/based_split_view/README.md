@@ -29,7 +29,7 @@ Inspired by [flutter_split_view](https://pub.dev/packages/flutter_split_view)
 
 # 📸 Screenshots
 
-Try out [live example app](https://note-of-me.top/based_widget_demo/)
+Try out [live example app](https://note-of-me.top/based_widget/)
 
 # 📦 How to use
 
