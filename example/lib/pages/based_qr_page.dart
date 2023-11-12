@@ -9,7 +9,7 @@ class BasedQrPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('$this'),
+        title: const Text('BasedQrPage'),
         actions: const [ToggleThemeModeButton()],
       ),
       body: Center(

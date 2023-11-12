@@ -27,7 +27,7 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '$widget',
+      title: 'BasedWidgetDemo',
       theme: theme,
       darkTheme: darkTheme,
       themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
@@ -42,7 +42,7 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
                     leading: const BasedAvatar(
                       placeholder: Text('BA'),
                     ),
-                    titleText: '$BasedAvatar',
+                    titleText: 'BasedAvatar',
                     onTap: () => context.push(
                       const BasedAvatarPage(),
                     ),
@@ -51,14 +51,14 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
                     leading: const BasedBatteryIndicator(
                       status: BasedBatteryStatus(value: 100),
                     ),
-                    titleText: '$BasedBatteryIndicator',
+                    titleText: 'BasedBatteryIndicator',
                     onTap: () => context.push(
                       const BasedBatteryIndicatorPage(),
                     ),
                   ),
                   BasedListTile(
                     leadingIcon: Icons.dock_rounded,
-                    titleText: '$BasedDockScaffold',
+                    titleText: 'BasedDockScaffold',
                     onTap: () => context.push(
                       const BasedDockScaffoldPage(),
                     ),

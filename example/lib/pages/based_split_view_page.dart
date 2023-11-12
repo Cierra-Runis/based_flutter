@@ -9,7 +9,7 @@ class BasedSplitViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('$this'),
+        title: const Text('BasedSplitViewPage'),
         actions: const [ToggleThemeModeButton()],
       ),
       body: BasedSplitView(

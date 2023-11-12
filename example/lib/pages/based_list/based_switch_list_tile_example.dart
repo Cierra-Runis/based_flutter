@@ -1,5 +1,5 @@
 import 'package:example/index.dart';
-import 'package:example/pages/based_list_view/looping_icon.dart';
+import 'package:example/pages/based_list/looping_icon.dart';
 
 class BasedSwitchListTileExample extends StatefulWidget {
   const BasedSwitchListTileExample({super.key});

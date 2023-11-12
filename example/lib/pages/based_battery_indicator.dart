@@ -39,7 +39,7 @@ BasedBatteryIndicator(
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('$widget'),
+        title: const Text('BasedBatteryIndicatorPage'),
         actions: const [ToggleThemeModeButton()],
       ),
       body: Padding(

@@ -9,7 +9,7 @@ class BasedDockScaffoldPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasedDockScaffold(
       appBar: AppBar(
-        title: Text('$this'),
+        title: const Text('BasedDockScaffoldPage'),
         actions: const [ToggleThemeModeButton()],
       ),
       body: const Center(
