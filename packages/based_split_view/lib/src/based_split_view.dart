@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 enum SplitMode { flex, width }
 
+final _leftWidgetKey = GlobalKey();
+
 class BasedSplitView extends StatelessWidget {
   const BasedSplitView({
     super.key,
@@ -53,15 +55,36 @@ class BasedSplitView extends StatelessWidget {
                 if (route.isFirst) return false;
                 return route.didPop(result);
               },
-              pages: [MaterialPage(child: leftWidget)],
+              pages: [
+                MaterialPage(
+                  child: Builder(
+                    key: _leftWidgetKey,
+                    builder: (context) {
+                      return leftWidget;
+                    },
+                  ),
+                ),
+              ],
             );
           }
 
           return Row(
             children: [
               switch (splitMode) {
-                SplitMode.flex => Expanded(flex: leftFlex, child: leftWidget),
-                SplitMode.width => SizedBox(width: leftWidth, child: leftWidget)
+                SplitMode.flex => Expanded(
+                    flex: leftFlex,
+                    child: Builder(
+                      key: _leftWidgetKey,
+                      builder: (context) => leftWidget,
+                    ),
+                  ),
+                SplitMode.width => SizedBox(
+                    width: leftWidth,
+                    child: Builder(
+                      key: _leftWidgetKey,
+                      builder: (context) => leftWidget,
+                    ),
+                  )
               },
               VerticalDivider(width: dividerWidth),
               Expanded(

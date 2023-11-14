@@ -34,54 +34,69 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
       home: Scaffold(
         body: BasedSplitView(
           navigatorKey: demoSplitViewKey,
-          leftWidget: BasedListView(
+          leftWidget: const DemoLeftWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class DemoLeftWidget extends StatelessWidget {
+  const DemoLeftWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      drawer: const Drawer(),
+      body: BasedListView(
+        children: [
+          BasedListSection(
             children: [
-              BasedListSection(
-                children: [
-                  BasedListTile(
-                    leading: const BasedAvatar(
-                      placeholder: Text('BA'),
-                    ),
-                    titleText: 'BasedAvatar',
-                    onTap: () => context.push(
-                      const BasedAvatarPage(),
-                    ),
-                  ),
-                  BasedListTile(
-                    leading: const BasedBatteryIndicator(
-                      status: BasedBatteryStatus(value: 100),
-                    ),
-                    titleText: 'BasedBatteryIndicator',
-                    onTap: () => context.push(
-                      const BasedBatteryIndicatorPage(),
-                    ),
-                  ),
-                  BasedListTile(
-                    leadingIcon: Icons.dock_rounded,
-                    titleText: 'BasedDockScaffold',
-                    onTap: () => context.push(
-                      const BasedDockScaffoldPage(),
-                    ),
-                  ),
-                  BasedListTile(
-                    leadingIcon: Icons.qr_code_rounded,
-                    titleText: 'BasedQr',
-                    onTap: () => context.push(
-                      const BasedQrPage(),
-                    ),
-                  ),
-                  BasedListTile(
-                    leadingIcon: Icons.splitscreen_rounded,
-                    titleText: 'BasedSplitView',
-                    onTap: () => context.push(
-                      const BasedSplitViewPage(),
-                    ),
-                  ),
-                ],
+              BasedListTile(
+                leading: const BasedAvatar(
+                  placeholder: Text('BA'),
+                ),
+                titleText: 'BasedAvatar',
+                onTap: () => context.push(
+                  const BasedAvatarPage(),
+                ),
+              ),
+              BasedListTile(
+                leading: const BasedBatteryIndicator(
+                  status: BasedBatteryStatus(value: 100),
+                ),
+                titleText: 'BasedBatteryIndicator',
+                onTap: () => context.push(
+                  const BasedBatteryIndicatorPage(),
+                ),
+              ),
+              BasedListTile(
+                leadingIcon: Icons.dock_rounded,
+                titleText: 'BasedDockScaffold',
+                onTap: () => context.push(
+                  const BasedDockScaffoldPage(),
+                ),
+              ),
+              BasedListTile(
+                leadingIcon: Icons.qr_code_rounded,
+                titleText: 'BasedQr',
+                onTap: () => context.push(
+                  const BasedQrPage(),
+                ),
+              ),
+              BasedListTile(
+                leadingIcon: Icons.splitscreen_rounded,
+                titleText: 'BasedSplitView',
+                onTap: () => context.push(
+                  const BasedSplitViewPage(),
+                ),
               ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
