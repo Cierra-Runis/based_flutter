@@ -23,6 +23,7 @@ dependencies:
     path: ../packages/based_qr
   based_split_view:
     path: ../packages/based_split_view
+  device_frame: ^1.1.0
 
 dev_dependencies:
   flutter_test:

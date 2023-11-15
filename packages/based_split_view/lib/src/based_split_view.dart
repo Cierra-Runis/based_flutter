@@ -35,69 +35,79 @@ class BasedSplitView extends StatelessWidget {
     final key = navigatorKey ?? GlobalKey<NavigatorState>();
     final leftKey = leftWidgetKey ?? GlobalKey();
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final singleView = constraints.maxWidth <= breakPoint;
+    return WillPopScope(
+      onWillPop: () async {
+        final navigator = key.currentState;
+        if (navigator == null || !navigator.canPop()) {
+          return true;
+        }
+        navigator.pop();
+        return false;
+      },
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final singleView = constraints.maxWidth <= breakPoint;
 
-        if (singleView) {
-          return Navigator(
-            key: key,
-            onPopPage: (route, result) {
-              /// prevent to pop root page
-              if (route.isFirst) return false;
-              return route.didPop(result);
-            },
-            pages: [
-              MaterialPage(
-                child: Builder(
-                  key: leftKey,
-                  builder: (context) {
-                    return leftWidget;
+          if (singleView) {
+            return Navigator(
+              key: key,
+              onPopPage: (route, result) {
+                /// prevent to pop root page
+                if (route.isFirst) return false;
+                return route.didPop(result);
+              },
+              pages: [
+                MaterialPage(
+                  child: Builder(
+                    key: leftKey,
+                    builder: (context) {
+                      return leftWidget;
+                    },
+                  ),
+                ),
+              ],
+            );
+          }
+
+          return Row(
+            children: [
+              switch (splitMode) {
+                SplitMode.flex => Expanded(
+                    flex: leftFlex,
+                    child: Builder(
+                      key: leftKey,
+                      builder: (context) {
+                        return leftWidget;
+                      },
+                    ),
+                  ),
+                SplitMode.width => SizedBox(
+                    width: leftWidth,
+                    child: Builder(
+                      key: leftKey,
+                      builder: (context) {
+                        return leftWidget;
+                      },
+                    ),
+                  )
+              },
+              VerticalDivider(width: dividerWidth),
+              Expanded(
+                flex: rightFlex,
+                child: Navigator(
+                  key: key,
+                  onPopPage: (route, result) {
+                    /// prevent to pop root page
+                    if (route.isFirst) return false;
+                    return route.didPop(result);
                   },
+                  pages: [MaterialPage(child: Center(child: rightPlaceholder))],
                 ),
               ),
             ],
           );
-        }
-
-        return Row(
-          children: [
-            switch (splitMode) {
-              SplitMode.flex => Expanded(
-                  flex: leftFlex,
-                  child: Builder(
-                    key: leftKey,
-                    builder: (context) {
-                      return leftWidget;
-                    },
-                  ),
-                ),
-              SplitMode.width => SizedBox(
-                  width: leftWidth,
-                  child: Builder(
-                    key: leftKey,
-                    builder: (context) {
-                      return leftWidget;
-                    },
-                  ),
-                )
-            },
-            VerticalDivider(width: dividerWidth),
-            Expanded(
-              flex: rightFlex,
-              child: Navigator(
-                key: key,
-                onPopPage: (route, result) {
-                  /// prevent to pop root page
-                  if (route.isFirst) return false;
-                  return route.didPop(result);
-                },
-                pages: [MaterialPage(child: Center(child: rightPlaceholder))],
-              ),
-            ),
-          ],
-        );
-      },
+        },
+      ),
     );
   }
 }

@@ -8,6 +8,8 @@ export 'package:based_list/based_list.dart';
 export 'package:based_qr/based_qr.dart';
 export 'package:based_split_view/based_split_view.dart';
 
+export 'package:device_frame/device_frame.dart';
+
 export 'main.dart';
 export 'constance.dart';
 export 'pages/index.dart';

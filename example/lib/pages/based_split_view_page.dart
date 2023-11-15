@@ -9,13 +9,20 @@ class BasedSplitViewPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: const BackButton(),
         title: const Text('BasedSplitViewPage'),
         actions: const [ToggleThemeModeButton()],
       ),
-      body: BasedSplitView(
-        navigatorKey: navigatorKey,
-        leftWidget: LeftWidget(
-          navigatorKey: navigatorKey,
+      body: Center(
+        child: DeviceFrame(
+          device: Devices.ios.iPadPro11Inches,
+          orientation: Orientation.landscape,
+          screen: BasedSplitView(
+            navigatorKey: navigatorKey,
+            leftWidget: LeftWidget(
+              navigatorKey: navigatorKey,
+            ),
+          ),
         ),
       ),
     );
