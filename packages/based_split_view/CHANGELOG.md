@@ -1,3 +1,11 @@
+## 1.0.4
+
+😵‍💫Weird behavior
+When there's page in ipad's right view,
+by clicking the back button at demo's right view,
+it pops ipad's right view, but not demo's right view,
+only when ipad's right view has not more page it pops demo's right view.
+
 ## 1.0.3
 
 🔧Fix can't pop BasedSplitView when it has pages
