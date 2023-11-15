@@ -1,3 +1,7 @@
+## 1.0.3
+
+🔧Fix can't pop BasedSplitView when it has pages
+
 ## 1.0.2
 
 🔧Add \_leftWidgetKey to save state
