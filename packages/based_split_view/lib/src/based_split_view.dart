@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 enum SplitMode { flex, width }
 
-final _leftWidgetKey = GlobalKey();
-
 class BasedSplitView extends StatelessWidget {
   const BasedSplitView({
     super.key,
@@ -33,15 +31,12 @@ class BasedSplitView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final key = navigatorKey ?? GlobalKey<NavigatorState>();
+    final leftWidgetKey = GlobalKey();
 
     return WillPopScope(
       onWillPop: () async {
         final navigator = key.currentState;
-        if (navigator == null || !navigator.canPop()) {
-          return true;
-        }
-        navigator.pop();
-        return false;
+        return navigator == null || !navigator.canPop();
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -58,7 +53,7 @@ class BasedSplitView extends StatelessWidget {
               pages: [
                 MaterialPage(
                   child: Builder(
-                    key: _leftWidgetKey,
+                    key: leftWidgetKey,
                     builder: (context) {
                       return leftWidget;
                     },
@@ -74,15 +69,19 @@ class BasedSplitView extends StatelessWidget {
                 SplitMode.flex => Expanded(
                     flex: leftFlex,
                     child: Builder(
-                      key: _leftWidgetKey,
-                      builder: (context) => leftWidget,
+                      key: leftWidgetKey,
+                      builder: (context) {
+                        return leftWidget;
+                      },
                     ),
                   ),
                 SplitMode.width => SizedBox(
                     width: leftWidth,
                     child: Builder(
-                      key: _leftWidgetKey,
-                      builder: (context) => leftWidget,
+                      key: leftWidgetKey,
+                      builder: (context) {
+                        return leftWidget;
+                      },
                     ),
                   )
               },

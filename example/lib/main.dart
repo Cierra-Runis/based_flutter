@@ -31,11 +31,9 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
       theme: theme,
       darkTheme: darkTheme,
       themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      home: Scaffold(
-        body: BasedSplitView(
-          navigatorKey: _demoSplitViewKey,
-          leftWidget: const DemoLeftWidget(),
-        ),
+      home: BasedSplitView(
+        navigatorKey: _demoSplitViewKey,
+        leftWidget: const DemoLeftWidget(),
       ),
     );
   }
