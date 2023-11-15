@@ -6,17 +6,19 @@ class BasedSplitView extends StatelessWidget {
   const BasedSplitView({
     super.key,
     this.navigatorKey,
+    this.leftWidgetKey,
     required this.leftWidget,
     this.rightPlaceholder = const BasedSplitViewPlaceholder(),
     this.dividerWidth = 0.5,
     this.splitMode = SplitMode.width,
     this.leftFlex = 1,
     this.rightFlex = 3,
-    this.leftWidth = 340,
-    this.breakPoint = 340 * 2,
+    this.leftWidth = 364,
+    this.breakPoint = 364 * 2,
   });
 
   final GlobalKey<NavigatorState>? navigatorKey;
+  final GlobalKey? leftWidgetKey;
 
   final Widget leftWidget;
   final Widget rightPlaceholder;
@@ -31,77 +33,71 @@ class BasedSplitView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final key = navigatorKey ?? GlobalKey<NavigatorState>();
-    final leftWidgetKey = GlobalKey();
+    final leftKey = leftWidgetKey ?? GlobalKey();
 
-    return WillPopScope(
-      onWillPop: () async {
-        final navigator = key.currentState;
-        return navigator == null || !navigator.canPop();
-      },
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final singleView = constraints.maxWidth <= breakPoint;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final singleView = constraints.maxWidth <= breakPoint;
 
-          if (singleView) {
-            return Navigator(
-              key: key,
-              onPopPage: (route, result) {
-                /// prevent to pop root page
-                if (route.isFirst) return false;
-                return route.didPop(result);
-              },
-              pages: [
-                MaterialPage(
+        if (singleView) {
+          return Navigator(
+            key: key,
+            onPopPage: (route, result) {
+              /// prevent to pop root page
+              if (route.isFirst) return false;
+              return route.didPop(result);
+            },
+            pages: [
+              MaterialPage(
+                child: Builder(
+                  key: leftKey,
+                  builder: (context) {
+                    return leftWidget;
+                  },
+                ),
+              ),
+            ],
+          );
+        }
+
+        return Row(
+          children: [
+            switch (splitMode) {
+              SplitMode.flex => Expanded(
+                  flex: leftFlex,
                   child: Builder(
-                    key: leftWidgetKey,
+                    key: leftKey,
                     builder: (context) {
                       return leftWidget;
                     },
                   ),
                 ),
-              ],
-            );
-          }
-
-          return Row(
-            children: [
-              switch (splitMode) {
-                SplitMode.flex => Expanded(
-                    flex: leftFlex,
-                    child: Builder(
-                      key: leftWidgetKey,
-                      builder: (context) {
-                        return leftWidget;
-                      },
-                    ),
+              SplitMode.width => SizedBox(
+                  width: leftWidth,
+                  child: Builder(
+                    key: leftKey,
+                    builder: (context) {
+                      return leftWidget;
+                    },
                   ),
-                SplitMode.width => SizedBox(
-                    width: leftWidth,
-                    child: Builder(
-                      key: leftWidgetKey,
-                      builder: (context) {
-                        return leftWidget;
-                      },
-                    ),
-                  )
-              },
-              VerticalDivider(width: dividerWidth),
-              Expanded(
-                flex: rightFlex,
-                child: Navigator(
-                  key: key,
-                  onPopPage: (route, result) {
-                    /// prevent to pop root page
-                    if (route.isFirst) return false;
-                    return route.didPop(result);
-                  },
-                  pages: [MaterialPage(child: Center(child: rightPlaceholder))],
-                ),
+                )
+            },
+            VerticalDivider(width: dividerWidth),
+            Expanded(
+              flex: rightFlex,
+              child: Navigator(
+                key: key,
+                onPopPage: (route, result) {
+                  /// prevent to pop root page
+                  if (route.isFirst) return false;
+                  return route.didPop(result);
+                },
+                pages: [MaterialPage(child: Center(child: rightPlaceholder))],
               ),
-            ],
-          );
-        },
-      ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
