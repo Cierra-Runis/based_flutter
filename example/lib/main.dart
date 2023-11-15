@@ -2,7 +2,7 @@ import 'package:example/index.dart';
 import 'package:example/pages/based_battery_indicator.dart';
 import 'package:example/pages/based_dock_scaffold_page.dart';
 
-final demoSplitViewKey = GlobalKey<NavigatorState>();
+final _demoSplitViewKey = GlobalKey<NavigatorState>();
 
 void main() => runApp(const BasedWidgetDemo());
 
@@ -33,7 +33,7 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
       themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
       home: Scaffold(
         body: BasedSplitView(
-          navigatorKey: demoSplitViewKey,
+          navigatorKey: _demoSplitViewKey,
           leftWidget: const DemoLeftWidget(),
         ),
       ),
@@ -60,8 +60,10 @@ class DemoLeftWidget extends StatelessWidget {
                   placeholder: Text('BA'),
                 ),
                 titleText: 'BasedAvatar',
-                onTap: () => context.push(
-                  const BasedAvatarPage(),
+                onTap: () => _demoSplitViewKey.currentState?.push(
+                  CupertinoPageRoute(
+                    builder: (context) => const BasedAvatarPage(),
+                  ),
                 ),
               ),
               BasedListTile(
@@ -69,29 +71,37 @@ class DemoLeftWidget extends StatelessWidget {
                   status: BasedBatteryStatus(value: 100),
                 ),
                 titleText: 'BasedBatteryIndicator',
-                onTap: () => context.push(
-                  const BasedBatteryIndicatorPage(),
+                onTap: () => _demoSplitViewKey.currentState?.push(
+                  CupertinoPageRoute(
+                    builder: (context) => const BasedBatteryIndicatorPage(),
+                  ),
                 ),
               ),
               BasedListTile(
                 leadingIcon: Icons.dock_rounded,
                 titleText: 'BasedDockScaffold',
-                onTap: () => context.push(
-                  const BasedDockScaffoldPage(),
+                onTap: () => _demoSplitViewKey.currentState?.push(
+                  CupertinoPageRoute(
+                    builder: (context) => const BasedDockScaffoldPage(),
+                  ),
                 ),
               ),
               BasedListTile(
                 leadingIcon: Icons.qr_code_rounded,
                 titleText: 'BasedQr',
-                onTap: () => context.push(
-                  const BasedQrPage(),
+                onTap: () => _demoSplitViewKey.currentState?.push(
+                  CupertinoPageRoute(
+                    builder: (context) => const BasedQrPage(),
+                  ),
                 ),
               ),
               BasedListTile(
                 leadingIcon: Icons.splitscreen_rounded,
                 titleText: 'BasedSplitView',
-                onTap: () => context.push(
-                  const BasedSplitViewPage(),
+                onTap: () => _demoSplitViewKey.currentState?.push(
+                  CupertinoPageRoute(
+                    builder: (context) => const BasedSplitViewPage(),
+                  ),
                 ),
               ),
             ],

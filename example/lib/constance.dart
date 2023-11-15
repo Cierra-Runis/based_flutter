@@ -14,11 +14,3 @@ final darkTheme = ThemeData(
   ),
   useMaterial3: true,
 );
-
-extension BuildContextExt on BuildContext {
-  Future<T?> push<T extends Object?>(Widget page) =>
-      demoSplitViewKey.currentState!
-          .push(CupertinoPageRoute<T>(builder: (_) => page));
-
-  void pop<T extends Object?>([T? result]) => Navigator.pop(this, result);
-}
