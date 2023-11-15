@@ -1,12 +1,12 @@
 import 'package:example/index.dart';
 
-final navigatorKey = GlobalKey<NavigatorState>();
-
 class BasedSplitViewPage extends StatelessWidget {
   const BasedSplitViewPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final navigatorKey = GlobalKey<NavigatorState>();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('BasedSplitViewPage'),
@@ -14,7 +14,9 @@ class BasedSplitViewPage extends StatelessWidget {
       ),
       body: BasedSplitView(
         navigatorKey: navigatorKey,
-        leftWidget: const LeftWidget(),
+        leftWidget: LeftWidget(
+          navigatorKey: navigatorKey,
+        ),
       ),
     );
   }
@@ -23,7 +25,10 @@ class BasedSplitViewPage extends StatelessWidget {
 class LeftWidget extends StatelessWidget {
   const LeftWidget({
     super.key,
+    required this.navigatorKey,
   });
+
+  final GlobalKey<NavigatorState> navigatorKey;
 
   @override
   Widget build(BuildContext context) {
@@ -68,12 +73,20 @@ class NextPageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: TextButton(
-        onPressed: () => Navigator.push(
-          context,
-          CupertinoPageRoute(builder: (context) => const NextPage()),
-        ),
-        child: const Text('Use Navigator to Push page'),
+      child: Wrap(
+        children: [
+          TextButton(
+            onPressed: () => Navigator.push(
+              context,
+              CupertinoPageRoute(builder: (context) => const NextPage()),
+            ),
+            child: const Text('Use Navigator to Push page'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Use Navigator to Pop page'),
+          ),
+        ],
       ),
     );
   }
