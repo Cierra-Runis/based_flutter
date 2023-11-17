@@ -35,15 +35,8 @@ class BasedSplitView extends StatelessWidget {
     final key = navigatorKey ?? GlobalKey<NavigatorState>();
     final leftKey = leftWidgetKey ?? GlobalKey();
 
-    return WillPopScope(
-      onWillPop: () async {
-        final navigator = key.currentState;
-        if (navigator == null || !navigator.canPop()) {
-          return true;
-        }
-        navigator.pop();
-        return false;
-      },
+    return NavigatorPopHandler(
+      onPop: () => key.currentState?.maybePop(),
       child: LayoutBuilder(
         builder: (context, constraints) {
           final singleView = constraints.maxWidth <= breakPoint;
@@ -60,9 +53,7 @@ class BasedSplitView extends StatelessWidget {
                 MaterialPage(
                   child: Builder(
                     key: leftKey,
-                    builder: (context) {
-                      return leftWidget;
-                    },
+                    builder: (context) => leftWidget,
                   ),
                 ),
               ],
@@ -76,18 +67,14 @@ class BasedSplitView extends StatelessWidget {
                     flex: leftFlex,
                     child: Builder(
                       key: leftKey,
-                      builder: (context) {
-                        return leftWidget;
-                      },
+                      builder: (context) => leftWidget,
                     ),
                   ),
                 SplitMode.width => SizedBox(
                     width: leftWidth,
                     child: Builder(
                       key: leftKey,
-                      builder: (context) {
-                        return leftWidget;
-                      },
+                      builder: (context) => leftWidget,
                     ),
                   )
               },

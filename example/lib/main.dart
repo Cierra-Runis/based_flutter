@@ -2,7 +2,7 @@ import 'package:example/index.dart';
 import 'package:example/pages/based_battery_indicator.dart';
 import 'package:example/pages/based_dock_scaffold_page.dart';
 
-final _demoSplitViewKey = GlobalKey<NavigatorState>();
+final demoSplitViewKey = GlobalKey<NavigatorState>();
 
 void main() => runApp(const BasedWidgetDemo());
 
@@ -32,7 +32,7 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
       darkTheme: darkTheme,
       themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
       home: BasedSplitView(
-        navigatorKey: _demoSplitViewKey,
+        navigatorKey: demoSplitViewKey,
         leftWidget: const DemoLeftWidget(),
       ),
     );
@@ -58,7 +58,7 @@ class DemoLeftWidget extends StatelessWidget {
                   placeholder: Text('BA'),
                 ),
                 titleText: 'BasedAvatar',
-                onTap: () => _demoSplitViewKey.currentState?.push(
+                onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(
                     builder: (context) => const BasedAvatarPage(),
                   ),
@@ -69,7 +69,7 @@ class DemoLeftWidget extends StatelessWidget {
                   status: BasedBatteryStatus(value: 100),
                 ),
                 titleText: 'BasedBatteryIndicator',
-                onTap: () => _demoSplitViewKey.currentState?.push(
+                onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(
                     builder: (context) => const BasedBatteryIndicatorPage(),
                   ),
@@ -78,7 +78,7 @@ class DemoLeftWidget extends StatelessWidget {
               BasedListTile(
                 leadingIcon: Icons.dock_rounded,
                 titleText: 'BasedDockScaffold',
-                onTap: () => _demoSplitViewKey.currentState?.push(
+                onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(
                     builder: (context) => const BasedDockScaffoldPage(),
                   ),
@@ -87,7 +87,7 @@ class DemoLeftWidget extends StatelessWidget {
               BasedListTile(
                 leadingIcon: Icons.qr_code_rounded,
                 titleText: 'BasedQr',
-                onTap: () => _demoSplitViewKey.currentState?.push(
+                onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(
                     builder: (context) => const BasedQrPage(),
                   ),
@@ -96,7 +96,7 @@ class DemoLeftWidget extends StatelessWidget {
               BasedListTile(
                 leadingIcon: Icons.splitscreen_rounded,
                 titleText: 'BasedSplitView',
-                onTap: () => _demoSplitViewKey.currentState?.push(
+                onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(
                     builder: (context) => const BasedSplitViewPage(),
                   ),

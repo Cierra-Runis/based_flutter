@@ -9,7 +9,9 @@ class BasedSplitViewPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: const BackButton(),
+        leading: BackButton(
+          onPressed: demoSplitViewKey.currentState?.pop,
+        ),
         title: const Text('BasedSplitViewPage'),
         actions: const [ToggleThemeModeButton()],
       ),
@@ -39,27 +41,29 @@ class LeftWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Wrap(
-        alignment: WrapAlignment.center,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          TextButton(
-            onPressed: () {
-              navigatorKey.currentState?.push(
-                CupertinoPageRoute(builder: (context) => const NextPage()),
-              );
-            },
-            child: const Text('Use GlobalKey to Push page'),
-          ),
-          TextButton(
-            onPressed: () {
-              navigatorKey.currentState?.pop();
-            },
-            child: const Text('Use GlobalKey to Pop page'),
-          ),
-          const NextPageButton(),
-        ],
+    return Scaffold(
+      body: Center(
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {
+                navigatorKey.currentState?.push(
+                  CupertinoPageRoute(builder: (context) => const NextPage()),
+                );
+              },
+              child: const Text('Use GlobalKey to Push page'),
+            ),
+            TextButton(
+              onPressed: () {
+                navigatorKey.currentState?.pop();
+              },
+              child: const Text('Use GlobalKey to Pop page'),
+            ),
+            const NextPageButton(),
+          ],
+        ),
       ),
     );
   }
