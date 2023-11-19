@@ -1,10 +1,9 @@
 <div align="center">
   <img id="based_widget" width="96" alt="based_widget" src="https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/icon.svg">
   <p>『 based_widget - Based Widget! 』</p>
-  <a href="https://github.com/Cierra-Runis/based_widget/blob/master/README_zh.md">中文 Readme</a>
 </div>
 
-`Latest update: 2023-11-12 11:05:23`
+`Latest update: 2023-11-19 16:21:50`
 
 [📚 Introduction](#-Introduction)
 
@@ -24,29 +23,19 @@
 
 # 📚 Introduction
 
-Using to build `README` file quickly
+A group of based widget help you building beautiful page quickly
 
-# 📸 Screenshots
+# 📦Packages
 
-![screenshots_1](https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/screenshots_1.png)
-
-# 📦 How to use
-
-Copy, paste then revise `README` and `LICENSE` file and the image in `.github` folder
-
-# ⏳ Rate of progress
-
-Done, but it will revise if necessary
-
-# 📌 Cautions
-
-- Remember to revise the `src`, `alt` and `href` attribute in `<img>` and `<a>` tags
-- Remember to revise the `<p>` tag
-- Remember to revise the latest update time
-- Remember to revise the repository name and branch in [Contributor](#-Contributor) and [Declaration](#-Declaration)
-- Remember to revise the year and name in `LICENSE`
-- If you want to add link to another section on the readme page by yourself, please remove invisible `\ufe0f` after emoji
-- Please use the full link as much as possible
+|         Package         |                     Demo                     |                                              GitHub                                               |                           Pub                            |
+| :---------------------: | :------------------------------------------: | :-----------------------------------------------------------------------------------------------: | :------------------------------------------------------: |
+|      based_avatar       | [Link](https://note-of-me.top/based_widget/) |      [Link](https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_avatar)       |      [Link](https://pub.dev/packages/based_avatar)       |
+| based_battery_indicator | [Link](https://note-of-me.top/based_widget/) | [Link](https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_battery_indicator) | [Link](https://pub.dev/packages/based_battery_indicator) |
+|   based_dock_scaffold   | [Link](https://note-of-me.top/based_widget/) |   [Link](https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_dock_scaffold)   |   [Link](https://pub.dev/packages/based_dock_scaffold)   |
+|       based_list        | [Link](https://note-of-me.top/based_widget/) |       [Link](https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_list)        |       [Link](https://pub.dev/packages/based_list)        |
+|        based_qr         | [Link](https://note-of-me.top/based_widget/) |        [Link](https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_qr)         |        [Link](https://pub.dev/packages/based_qr)         |
+|    based_splash_page    | [Link](https://note-of-me.top/based_widget/) |    [Link](https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_splash_page)    |    [Link](https://pub.dev/packages/based_splash_page)    |
+|    based_split_view     | [Link](https://note-of-me.top/based_widget/) |    [Link](https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_split_view)     |    [Link](https://pub.dev/packages/based_split_view)     |
 
 # 🧑‍💻 Contributor
 
