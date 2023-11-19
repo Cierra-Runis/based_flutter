@@ -44,13 +44,20 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  based_splash_page:
+    dependency: "direct main"
+    description:
+      path: "../packages/based_splash_page"
+      relative: true
+    source: path
+    version: "1.0.1"
   based_split_view:
     dependency: "direct main"
     description:
       path: "../packages/based_split_view"
       relative: true
     source: path
-    version: "1.0.4"
+    version: "1.0.5"
   boolean_selector:
     dependency: transitive
     description:
@@ -267,5 +274,5 @@ packages:
     source: hosted
     version: "0.3.0"
 sdks:
-  dart: ">=3.2.0-194.0.dev <4.0.0"
+  dart: ">=3.2.0 <4.0.0"
   flutter: ">=3.7.0-0.0"

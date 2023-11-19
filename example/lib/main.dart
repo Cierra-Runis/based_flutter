@@ -31,9 +31,13 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
       theme: theme,
       darkTheme: darkTheme,
       themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      home: BasedSplitView(
-        navigatorKey: demoSplitViewKey,
-        leftWidget: const DemoLeftWidget(),
+      home: BasedSplashPage(
+        rootPage: BasedSplitView(
+          navigatorKey: demoSplitViewKey,
+          leftWidget: const DemoLeftWidget(),
+        ),
+        appIcon: const Icon(Icons.widgets_rounded),
+        appName: const Text('BasedWidgetDemo'),
       ),
     );
   }
