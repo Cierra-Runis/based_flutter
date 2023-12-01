@@ -1,3 +1,7 @@
+## 1.0.6
+
+📖Use `CupertinoPage` now
+
 ## 1.0.5
 
 🔧Use `NavigatorPopHandler` instead `WillPopScope`

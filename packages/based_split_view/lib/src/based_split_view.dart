@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 enum SplitMode { flex, width }
@@ -50,7 +51,7 @@ class BasedSplitView extends StatelessWidget {
                 return route.didPop(result);
               },
               pages: [
-                MaterialPage(
+                CupertinoPage(
                   child: Builder(
                     key: leftKey,
                     builder: (context) => leftWidget,
@@ -88,7 +89,13 @@ class BasedSplitView extends StatelessWidget {
                     if (route.isFirst) return false;
                     return route.didPop(result);
                   },
-                  pages: [MaterialPage(child: Center(child: rightPlaceholder))],
+                  pages: [
+                    CupertinoPage(
+                      child: Center(
+                        child: rightPlaceholder,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
