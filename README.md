@@ -7,13 +7,7 @@
 
 [📚 Introduction](#-Introduction)
 
-[📸 Screenshots](#-Screenshots)
-
-[📦 How to use](#-How-to-use)
-
-[⏳ Rate of progress](#-Rate-of-progress)
-
-[📌 Cautions](#-Cautions)
+[📦 Packages](#-Packages)
 
 [🧑‍💻 Contributor](#-Contributor)
 
@@ -25,7 +19,7 @@
 
 A group of based widget help you building beautiful page quickly
 
-# 📦Packages
+# 📦 Packages
 
 |         Package         |                     Demo                     |                                              GitHub                                               |                           Pub                            |
 | :---------------------: | :------------------------------------------: | :-----------------------------------------------------------------------------------------------: | :------------------------------------------------------: |
