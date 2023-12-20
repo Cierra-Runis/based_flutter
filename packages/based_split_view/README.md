@@ -27,6 +27,12 @@ A Based Split View Widget, Which Helps You Create A Split View In Large Screen D
 
 Inspired by [flutter_split_view](https://pub.dev/packages/flutter_split_view)
 
+More information:
+
+- [Designed for iPad](https://developer.apple.com/videos/play/wwdc2020/10206)
+- [NavigationSplitView](https://developer.apple.com/documentation/swiftui/navigationsplitview)
+- [Support Different Screen Sizes](https://developer.android.com/guide/topics/large-screens/support-different-screen-sizes)
+
 # 📸 Screenshots
 
 Try out [live example app](https://note-of-me.top/based_widget/)
