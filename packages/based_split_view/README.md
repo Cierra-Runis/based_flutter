@@ -40,7 +40,7 @@ Try out [live example app](https://note-of-me.top/based_widget/)
 ```dart
 BasedSplitView(
   navigatorKey: navigatorKey,
-  leftWidget: const LeftWidget(),
+  leftWidget: LeftWidget(key: leftKey),
 ),
 ```
 
@@ -54,12 +54,12 @@ Done, but it will revise if necessary
 
 # 📌 Cautions
 
-None
+Maybe affect by [this issue](https://github.com/flutter/flutter/issues/140762).
 
 # 🧑‍💻 Contributor
 
 <a href="https://github.com/Cierra-Runis/based_widget/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_widget" />
+  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_widget" alt="based_widget"/>
 </a>
 
 # 🔦 Declaration

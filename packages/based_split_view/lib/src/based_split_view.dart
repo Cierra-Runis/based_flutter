@@ -7,9 +7,8 @@ class BasedSplitView extends StatelessWidget {
   const BasedSplitView({
     super.key,
     this.navigatorKey,
-    this.leftWidgetKey,
     required this.leftWidget,
-    this.rightPlaceholder = const BasedSplitViewPlaceholder(),
+    this.rightPlaceholder = const _BasedSplitViewPlaceholder(),
     this.dividerWidth = 0.5,
     this.splitMode = SplitMode.width,
     this.leftFlex = 1,
@@ -19,11 +18,15 @@ class BasedSplitView extends StatelessWidget {
   });
 
   final GlobalKey<NavigatorState>? navigatorKey;
-  final GlobalKey? leftWidgetKey;
 
+  /// Prefer to add a `GlobalKey` for keep the state of [leftWidget]
   final Widget leftWidget;
+
+  /// Present when there's no page pushed
   final Widget rightPlaceholder;
-  final double? dividerWidth;
+
+  /// Width of divider, only show when [dividerWidth] > 0
+  final double dividerWidth;
 
   final SplitMode splitMode;
   final int leftFlex;
@@ -34,10 +37,9 @@ class BasedSplitView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final key = navigatorKey ?? GlobalKey<NavigatorState>();
-    final leftKey = leftWidgetKey ?? GlobalKey();
 
     return NavigatorPopHandler(
-      onPop: () => key.currentState?.maybePop(),
+      onPop: key.currentState?.maybePop,
       child: LayoutBuilder(
         builder: (context, constraints) {
           final singleView = constraints.maxWidth <= breakPoint;
@@ -52,10 +54,7 @@ class BasedSplitView extends StatelessWidget {
               },
               pages: [
                 CupertinoPage(
-                  child: Builder(
-                    key: leftKey,
-                    builder: (context) => leftWidget,
-                  ),
+                  child: leftWidget,
                 ),
               ],
             );
@@ -66,36 +65,32 @@ class BasedSplitView extends StatelessWidget {
               switch (splitMode) {
                 SplitMode.flex => Expanded(
                     flex: leftFlex,
-                    child: Builder(
-                      key: leftKey,
-                      builder: (context) => leftWidget,
-                    ),
+                    child: leftWidget,
                   ),
                 SplitMode.width => SizedBox(
                     width: leftWidth,
-                    child: Builder(
-                      key: leftKey,
-                      builder: (context) => leftWidget,
-                    ),
+                    child: leftWidget,
                   )
               },
-              VerticalDivider(width: dividerWidth),
+              if (dividerWidth > 0) VerticalDivider(width: dividerWidth),
               Expanded(
                 flex: rightFlex,
-                child: Navigator(
-                  key: key,
-                  onPopPage: (route, result) {
-                    /// prevent to pop root page
-                    if (route.isFirst) return false;
-                    return route.didPop(result);
-                  },
-                  pages: [
-                    CupertinoPage(
-                      child: Center(
-                        child: rightPlaceholder,
+                child: ScaffoldMessenger(
+                  child: Navigator(
+                    key: key,
+                    onPopPage: (route, result) {
+                      /// prevent to pop root page
+                      if (route.isFirst) return false;
+                      return route.didPop(result);
+                    },
+                    pages: [
+                      CupertinoPage(
+                        child: Center(
+                          child: rightPlaceholder,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -106,8 +101,8 @@ class BasedSplitView extends StatelessWidget {
   }
 }
 
-class BasedSplitViewPlaceholder extends StatelessWidget {
-  const BasedSplitViewPlaceholder({super.key});
+class _BasedSplitViewPlaceholder extends StatelessWidget {
+  const _BasedSplitViewPlaceholder();
 
   @override
   Widget build(BuildContext context) {
