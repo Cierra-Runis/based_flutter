@@ -3,6 +3,7 @@ import 'package:example/pages/based_battery_indicator.dart';
 import 'package:example/pages/based_dock_scaffold_page.dart';
 
 final demoSplitViewKey = GlobalKey<NavigatorState>();
+final _leftKey = GlobalKey();
 
 void main() => runApp(const BasedWidgetDemo());
 
@@ -34,7 +35,9 @@ class BasedWidgetDemoState extends State<BasedWidgetDemo> {
       home: BasedSplashPage(
         rootPage: BasedSplitView(
           navigatorKey: demoSplitViewKey,
-          leftWidget: const DemoLeftWidget(),
+          leftWidget: DemoLeftWidget(
+            key: _leftKey,
+          ),
         ),
         appIcon: const Icon(Icons.widgets_rounded),
         appName: const Text('BasedWidgetDemo'),
@@ -58,9 +61,16 @@ class DemoLeftWidget extends StatelessWidget {
           BasedListSection(
             children: [
               BasedListTile(
-                leading: const BasedAvatar(
-                  placeholder: Text('BA'),
+                leadingIcon: Icons.list_alt_rounded,
+                titleText: 'BasedList',
+                onTap: () => demoSplitViewKey.currentState?.push(
+                  CupertinoPageRoute(
+                    builder: (context) => const BasedListViewPage(),
+                  ),
                 ),
+              ),
+              BasedListTile(
+                leadingIcon: Icons.face_rounded,
                 titleText: 'BasedAvatar',
                 onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(

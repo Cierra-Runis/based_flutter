@@ -57,7 +57,7 @@ packages:
       path: "../packages/based_split_view"
       relative: true
     source: path
-    version: "1.0.5"
+    version: "1.0.6"
   boolean_selector:
     dependency: transitive
     description:
