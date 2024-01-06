@@ -78,7 +78,7 @@ class BasedBatteryIndicator extends StatelessWidget {
             const SizedBox.expand(),
             AnimatedContainer(
               duration: duration,
-              width: barWidth * status.value / 100,
+              width: (barWidth - trackHeight / 6) * status.value / 100,
               height: double.infinity,
               curve: curve,
               decoration: BoxDecoration(
@@ -126,13 +126,15 @@ class BasedBatteryIndicator extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(left: trackHeight / 20),
-      child: Container(
+      child: SizedBox(
         width: knobWidth,
         height: knobHeight,
-        decoration: BoxDecoration(
-          color: borderColor,
-          borderRadius: BorderRadius.horizontal(
-            right: Radius.circular(knobWidth / 3),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: borderColor,
+            borderRadius: BorderRadius.horizontal(
+              right: Radius.circular(knobWidth / 3),
+            ),
           ),
         ),
       ),
