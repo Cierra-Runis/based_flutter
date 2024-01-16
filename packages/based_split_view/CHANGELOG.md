@@ -1,3 +1,8 @@
+## 1.1.0
+
+⚠️ Now `leftWidget` required a `key` for keep its state
+⚠️ Now `navigatorKey` is `required`
+
 ## 1.0.7
 
 📖 Rename `BasedSplitViewPlaceholder` to `_BasedSplitViewPlaceholder`

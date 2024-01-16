@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 enum SplitMode { flex, width }
 
 class BasedSplitView extends StatelessWidget {
-  const BasedSplitView({
+  BasedSplitView({
     super.key,
-    this.navigatorKey,
+    required this.navigatorKey,
     required this.leftWidget,
     this.rightPlaceholder = const _BasedSplitViewPlaceholder(),
     this.dividerWidth = 0.5,
@@ -15,11 +15,15 @@ class BasedSplitView extends StatelessWidget {
     this.rightFlex = 3,
     this.leftWidth = 364,
     this.breakPoint = 364 * 2,
-  });
+  }) : assert(
+          leftWidget.key != null,
+          'Prefer to add a [GlobalKey] for keep the state of [leftWidget]',
+        );
 
-  final GlobalKey<NavigatorState>? navigatorKey;
+  /// Keep the state of [Navigator]
+  final GlobalKey<NavigatorState> navigatorKey;
 
-  /// Prefer to add a `GlobalKey` for keep the state of [leftWidget]
+  /// Prefer to add a [GlobalKey] for keep the state of [leftWidget]
   final Widget leftWidget;
 
   /// Present when there's no page pushed
@@ -34,24 +38,26 @@ class BasedSplitView extends StatelessWidget {
   final double leftWidth;
   final double breakPoint;
 
+  bool onPopPage(Route<dynamic> route, dynamic result) {
+    /// Prevent to pop root page
+    if (route.isFirst) return false;
+    return route.didPop(result);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final key = navigatorKey ?? GlobalKey<NavigatorState>();
-
     return NavigatorPopHandler(
-      onPop: key.currentState?.maybePop,
+      onPop: () async {
+        await navigatorKey.currentState?.maybePop();
+      },
       child: LayoutBuilder(
         builder: (context, constraints) {
           final singleView = constraints.maxWidth <= breakPoint;
 
           if (singleView) {
             return Navigator(
-              key: key,
-              onPopPage: (route, result) {
-                /// prevent to pop root page
-                if (route.isFirst) return false;
-                return route.didPop(result);
-              },
+              key: navigatorKey,
+              onPopPage: onPopPage,
               pages: [
                 CupertinoPage(
                   child: leftWidget,
@@ -77,12 +83,8 @@ class BasedSplitView extends StatelessWidget {
                 flex: rightFlex,
                 child: ScaffoldMessenger(
                   child: Navigator(
-                    key: key,
-                    onPopPage: (route, result) {
-                      /// prevent to pop root page
-                      if (route.isFirst) return false;
-                      return route.didPop(result);
-                    },
+                    key: navigatorKey,
+                    onPopPage: onPopPage,
                     pages: [
                       CupertinoPage(
                         child: Center(
