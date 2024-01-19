@@ -19,8 +19,6 @@ dependencies:
     path: ../packages/based_dock_scaffold
   based_list:
     path: ../packages/based_list
-  based_local_first_image:
-    path: ../packages/based_local_first_image
   based_qr:
     path: ../packages/based_qr
   based_splash_page:
