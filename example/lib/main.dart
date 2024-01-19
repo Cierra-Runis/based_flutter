@@ -1,11 +1,13 @@
 import 'package:example/index.dart';
-import 'package:example/pages/based_battery_indicator.dart';
-import 'package:example/pages/based_dock_scaffold_page.dart';
 
 final demoSplitViewKey = GlobalKey<NavigatorState>();
 final _leftKey = GlobalKey();
+late final Directory appSupport;
 
-void main() => runApp(const BasedWidgetDemo());
+void main() async {
+  appSupport = await getApplicationSupportDirectory();
+  runApp(const BasedWidgetDemo());
+}
 
 class BasedWidgetDemo extends StatefulWidget {
   const BasedWidgetDemo({super.key});
@@ -113,6 +115,15 @@ class DemoLeftWidget extends StatelessWidget {
                 onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(
                     builder: (context) => const BasedSplitViewPage(),
+                  ),
+                ),
+              ),
+              BasedListTile(
+                leadingIcon: Icons.image_rounded,
+                titleText: 'BasedLocalFirstImage',
+                onTap: () => demoSplitViewKey.currentState?.push(
+                  CupertinoPageRoute(
+                    builder: (context) => const BasedLocalFirstImagePage(),
                   ),
                 ),
               ),

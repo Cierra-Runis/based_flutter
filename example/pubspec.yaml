@@ -19,6 +19,8 @@ dependencies:
     path: ../packages/based_dock_scaffold
   based_list:
     path: ../packages/based_list
+  based_local_first_image:
+    path: ../packages/based_local_first_image
   based_qr:
     path: ../packages/based_qr
   based_splash_page:
@@ -26,6 +28,8 @@ dependencies:
   based_split_view:
     path: ../packages/based_split_view
   device_frame: ^1.1.0
+  path: ^1.8.3
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:

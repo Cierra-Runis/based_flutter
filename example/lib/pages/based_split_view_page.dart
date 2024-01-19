@@ -22,6 +22,7 @@ class BasedSplitViewPage extends StatelessWidget {
           screen: BasedSplitView(
             navigatorKey: navigatorKey,
             leftWidget: LeftWidget(
+              key: UniqueKey(),
               navigatorKey: navigatorKey,
             ),
           ),
