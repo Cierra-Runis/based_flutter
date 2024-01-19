@@ -2,12 +2,8 @@ import 'package:example/index.dart';
 
 final demoSplitViewKey = GlobalKey<NavigatorState>();
 final _leftKey = GlobalKey();
-late final Directory appSupport;
 
-void main() async {
-  appSupport = await getApplicationSupportDirectory();
-  runApp(const BasedWidgetDemo());
-}
+void main() => runApp(const BasedWidgetDemo());
 
 class BasedWidgetDemo extends StatefulWidget {
   const BasedWidgetDemo({super.key});
@@ -115,15 +111,6 @@ class DemoLeftWidget extends StatelessWidget {
                 onTap: () => demoSplitViewKey.currentState?.push(
                   CupertinoPageRoute(
                     builder: (context) => const BasedSplitViewPage(),
-                  ),
-                ),
-              ),
-              BasedListTile(
-                leadingIcon: Icons.image_rounded,
-                titleText: 'BasedLocalFirstImage',
-                onTap: () => demoSplitViewKey.currentState?.push(
-                  CupertinoPageRoute(
-                    builder: (context) => const BasedLocalFirstImagePage(),
                   ),
                 ),
               ),
