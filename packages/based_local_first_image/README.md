@@ -7,8 +7,6 @@
 
 [📚 Introduction](#-Introduction)
 
-[📸 Screenshots](#-Screenshots)
-
 [📦 How to use](#-How-to-use)
 
 [🧑‍💻 Contributor](#-Contributor)
@@ -21,15 +19,31 @@
 
 Welcome to the world of local-first web development.
 
-# 📸 Screenshots
-
-Try out [live example app](http://note-of-me.top/based_widget/)
-
 # 📦 How to use
 
 - Follow [Installing](https://pub.dev/packages/based_local_first_image/install) to add `based_local_first_image` to your `pubspec.yaml`
 
-- See the example code at [example](https://github.com/Cierra-Runis/based_widget/blob/master/example/lib/main.dart)
+```dart
+Image(
+  image: BasedLocalFirstImage(
+    fileName: '$index.png',
+    localDirectory: path.join(appSupport.path, 'image'),
+    remoteUrl: 'https://avatars.githubusercontent.com/u/$index?v=4',
+  ),
+  errorBuilder: (context, error, stackTrace) => const Placeholder(),
+  loadingBuilder: (context, child, loadingProgress) {
+    if (loadingProgress == null) {
+      return child;
+    }
+    return CircularProgressIndicator(
+      value: loadingProgress.expectedTotalBytes != null
+          ? loadingProgress.cumulativeBytesLoaded /
+              loadingProgress.expectedTotalBytes!
+          : null,
+    );
+  },
+),
+```
 
 # 🧑‍💻 Contributor
 
