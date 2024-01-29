@@ -9,14 +9,14 @@ import 'package:flutter/foundation.dart';
 @immutable
 class BasedLocalFirstImage extends ImageProvider<BasedLocalFirstImage> {
   const BasedLocalFirstImage({
-    required this.fileName,
+    required this.filename,
     required this.localDirectory,
     this.scale = 1.0,
     this.remoteUrl,
     this.headers,
   });
 
-  final String fileName;
+  final String filename;
   final String localDirectory;
   final double scale;
   final String? remoteUrl;
@@ -70,7 +70,7 @@ class BasedLocalFirstImage extends ImageProvider<BasedLocalFirstImage> {
     assert(key == this);
 
     try {
-      final filePath = path.join(key.localDirectory, key.fileName);
+      final filePath = path.join(key.localDirectory, key.filename);
       final file = File(filePath);
 
       if (file.existsSync()) {
@@ -79,7 +79,7 @@ class BasedLocalFirstImage extends ImageProvider<BasedLocalFirstImage> {
 
       if (key.remoteUrl == null) {
         throw Exception(
-          'remoteUrl is null, can not download $fileName from network',
+          'remoteUrl is null, can not download $filename from network',
         );
       }
 
@@ -131,15 +131,15 @@ class BasedLocalFirstImage extends ImageProvider<BasedLocalFirstImage> {
   @override
   bool operator ==(Object other) {
     if (other is! BasedLocalFirstImage) return false;
-    return fileName == other.fileName &&
+    return filename == other.filename &&
         localDirectory == other.localDirectory &&
         remoteUrl == other.remoteUrl;
   }
 
   @override
-  int get hashCode => Object.hash(fileName, localDirectory, remoteUrl);
+  int get hashCode => Object.hash(filename, localDirectory, remoteUrl);
 
   @override
   String toString() =>
-      'BasedLocalFirstImageProvider(fileName: "$fileName", localDirectory:"$localDirectory")';
+      'BasedLocalFirstImageProvider(filename: "$filename", localDirectory:"$localDirectory")';
 }

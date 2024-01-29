@@ -26,7 +26,7 @@ Welcome to the world of local-first web development.
 ```dart
 Image(
   image: BasedLocalFirstImage(
-    fileName: '$index.png',
+    filename: '$index.png',
     localDirectory: path.join(appSupport.path, 'image'),
     remoteUrl: 'https://avatars.githubusercontent.com/u/$index?v=4',
   ),
