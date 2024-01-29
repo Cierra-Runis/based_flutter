@@ -247,12 +247,7 @@ class PrettyQrSmoothSymbol extends PrettyQrShape {
       } else {
         modulePath = transformWhiteModuleRect(moduleRect, moduleNeighbors);
       }
-
-      if (context.isImpellerEngineEnabled) {
-        context.canvas.drawPath(modulePath, paint);
-      } else {
-        path.addPath(modulePath, Offset.zero);
-      }
+      context.canvas.drawPath(modulePath, paint);
     }
 
     context.canvas.drawPath(path, paint);

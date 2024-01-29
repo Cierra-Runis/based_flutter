@@ -1,6 +1,6 @@
 name: based_qr
 description: A Based QR code Widget, Which Helps You Create A Beautiful QR code
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_qr
 
 environment:
