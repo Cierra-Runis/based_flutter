@@ -3,19 +3,22 @@ import 'package:flutter/material.dart';
 
 enum SplitMode { flex, width }
 
-class BasedSplitView extends StatelessWidget {
+class BasedSplitView extends StatefulWidget {
   BasedSplitView({
     super.key,
     required this.navigatorKey,
     required this.leftWidget,
     this.rightPlaceholder = const _BasedSplitViewPlaceholder(),
-    this.dividerWidth = 0.5,
     this.splitMode = SplitMode.width,
     this.leftFlex = 1,
     this.rightFlex = 3,
     this.leftWidth = 364,
-    this.breakPoint = 364 * 2,
-  }) : assert(
+    this.leftMinWidth = 364,
+    this.dividerWidth = 1,
+    this.rightMinWidth = 364,
+  })  : breakPoint = leftMinWidth + dividerWidth + rightMinWidth,
+        assert(leftMinWidth <= leftWidth),
+        assert(
           leftWidget.key != null,
           'Prefer to add a [GlobalKey] for keep the state of [leftWidget]',
         );
@@ -32,13 +35,58 @@ class BasedSplitView extends StatelessWidget {
   /// Width of divider, only show when [dividerWidth] > 0
   final double dividerWidth;
 
+  /// The [SplitMode] of [BasedSplitView]
+  ///
+  /// When [SplitMode.flex] is used
+  /// and `constraints.maxWidth` > [breakPoint],
+  /// [BasedSplitView] will split view by [leftFlex] : [rightFlex]
+  ///
+  /// When [SplitMode.width] is used
+  /// and `constraints.maxWidth` > [breakPoint],
+  /// [BasedSplitView] will spilt view by [leftWidth] and [dividerWidth],
+  /// [rightPlaceholder] or [Navigator] will use the remaining width
   final SplitMode splitMode;
+
   final int leftFlex;
   final int rightFlex;
+
+  /// The width of [leftWidget] when [SplitMode.width] is used
+  ///
+  /// It only used of initialize
   final double leftWidth;
+
+  /// When `constraints.maxWidth` <= [breakPoint],
+  /// [BasedSplitView] using singleView
   final double breakPoint;
 
-  bool onPopPage(Route<dynamic> route, dynamic result) {
+  /// The minimum value of [leftWidget]'s width
+  final double leftMinWidth;
+
+  /// The minimum value of [rightPlaceholder] or [Navigator]'s width
+  final double rightMinWidth;
+
+  @override
+  State<BasedSplitView> createState() => _BasedSplitViewState();
+}
+
+class _BasedSplitViewState extends State<BasedSplitView> {
+  late double _leftWidth = widget.leftWidth;
+
+  double _calculateLeftWidth(
+    BoxConstraints constraints,
+    double leftWidth,
+  ) {
+    final min = widget.leftMinWidth;
+    final max =
+        constraints.maxWidth - widget.dividerWidth - widget.rightMinWidth;
+
+    if (leftWidth < min) return min;
+    if (leftWidth > max) return max;
+
+    return leftWidth;
+  }
+
+  bool _onPopPage(Route<dynamic> route, dynamic result) {
     /// Prevent to pop root page
     if (route.isFirst) return false;
     return route.didPop(result);
@@ -47,59 +95,89 @@ class BasedSplitView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NavigatorPopHandler(
-      onPop: () async {
-        await navigatorKey.currentState?.maybePop();
-      },
+      onPop: () async => await widget.navigatorKey.currentState?.maybePop(),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          final singleView = constraints.maxWidth <= breakPoint;
+          final singleView = constraints.maxWidth <= widget.breakPoint;
 
           if (singleView) {
             return Navigator(
-              key: navigatorKey,
-              onPopPage: onPopPage,
+              key: widget.navigatorKey,
+              onPopPage: _onPopPage,
               pages: [
                 CupertinoPage(
-                  child: leftWidget,
+                  child: widget.leftWidget,
                 ),
               ],
             );
           }
 
-          return Row(
-            children: [
-              switch (splitMode) {
-                SplitMode.flex => Expanded(
-                    flex: leftFlex,
-                    child: leftWidget,
-                  ),
-                SplitMode.width => SizedBox(
-                    width: leftWidth,
-                    child: leftWidget,
-                  )
-              },
-              if (dividerWidth > 0) VerticalDivider(width: dividerWidth),
-              Expanded(
-                flex: rightFlex,
-                child: ScaffoldMessenger(
-                  child: Navigator(
-                    key: navigatorKey,
-                    onPopPage: onPopPage,
-                    pages: [
-                      CupertinoPage(
-                        child: Center(
-                          child: rightPlaceholder,
-                        ),
-                      ),
-                    ],
+          final calculated = _calculateLeftWidth(constraints, _leftWidth);
+
+          final rightWidget = ScaffoldMessenger(
+            child: Navigator(
+              key: widget.navigatorKey,
+              onPopPage: _onPopPage,
+              pages: [
+                CupertinoPage(
+                  child: Center(
+                    child: widget.rightPlaceholder,
                   ),
                 ),
-              ),
+              ],
+            ),
+          );
+
+          return Row(
+            children: [
+              switch (widget.splitMode) {
+                SplitMode.flex => Expanded(
+                    flex: widget.leftFlex,
+                    child: widget.leftWidget,
+                  ),
+                SplitMode.width => SizedBox(
+                    width: calculated,
+                    child: widget.leftWidget,
+                  )
+              },
+              if (widget.dividerWidth > 0 &&
+                  widget.splitMode == SplitMode.width)
+                GestureDetector(
+                  onHorizontalDragUpdate: (details) {
+                    final target = _leftWidth + (details.primaryDelta ?? 0);
+                    final leftWidth = _calculateLeftWidth(constraints, target);
+                    return setState(() => _leftWidth = leftWidth);
+                  },
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.resizeLeftRight,
+                    child: VerticalDivider(width: widget.dividerWidth),
+                  ),
+                ),
+              switch (widget.splitMode) {
+                SplitMode.flex => Expanded(
+                    flex: widget.rightFlex,
+                    child: rightWidget,
+                  ),
+                SplitMode.width => SizedBox(
+                    width:
+                        constraints.maxWidth - calculated - widget.dividerWidth,
+                    child: rightWidget,
+                  ),
+              },
             ],
           );
         },
       ),
     );
+  }
+}
+
+class _SplitFlexView extends StatelessWidget {
+  const _SplitFlexView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row();
   }
 }
 
