@@ -1,4 +1,4 @@
-name: based_widget
+name: based_flutter
 
 on:
   push:
@@ -14,4 +14,4 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
           workingDir: example
-          baseHref: /based_widget/
+          baseHref: /based_flutter/
