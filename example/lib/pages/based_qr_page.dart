@@ -1,9 +1,7 @@
 import 'package:example/index.dart';
 
 class BasedQrPage extends StatelessWidget {
-  const BasedQrPage({
-    super.key,
-  });
+  const BasedQrPage({super.key});
 
   @override
   Widget build(BuildContext context) {
