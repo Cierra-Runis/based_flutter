@@ -1,5 +1,5 @@
 <div align="center">
-  <img id="based_split_view" width="96" alt="based_split_view" src="https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_split_view/icon.svg">
+  <img id="based_split_view" width="96" alt="based_split_view" src="https://raw.githubusercontent.com/Cierra-Runis/based_flutter/master/.github/imgs/based_split_view/icon.svg">
   <p>『 based_split_view - Based Split View! 』</p>
 </div>
 
@@ -35,7 +35,7 @@ More information:
 
 # 📸 Screenshots
 
-Try out [live example app](https://note-of-me.top/based_widget/)
+Try out [live example app](https://cierra-runis.github.io/based_flutter/)
 
 # 📦 How to use
 
@@ -50,7 +50,7 @@ BasedSplitView(
 ),
 ```
 
-- For more information, see the example code at [example](https://github.com/Cierra-Runis/based_widget/blob/master/example/lib/main.dart)
+- For more information, see the example code at [example](https://github.com/Cierra-Runis/based_flutter/blob/master/example/lib/main.dart)
 
 - Or check this [commit](https://github.com/Cierra-Runis/mercurius/commit/be0202811899307f42e66f148dc31e8400f29352) to use in a real product
 
@@ -64,12 +64,12 @@ Maybe affect by [this issue](https://github.com/flutter/flutter/issues/140762).
 
 # 🧑‍💻 Contributor
 
-<a href="https://github.com/Cierra-Runis/based_widget/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_widget" alt="based_widget"/>
+<a href="https://github.com/Cierra-Runis/based_flutter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_flutter" alt="based_flutter"/>
 </a>
 
 # 🔦 Declaration
 
-[![License](https://img.shields.io/github/license/Cierra-Runis/based_widget)](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/Cierra-Runis/based_flutter)](https://github.com/Cierra-Runis/based_flutter/blob/master/LICENSE)
 
-This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE) for more details
+This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_flutter/blob/master/LICENSE) for more details

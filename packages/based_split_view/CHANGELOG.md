@@ -1,7 +1,13 @@
+## 1.2.1
+
+📖Update README.md to fix broken links
+🔧Use `canPop` of `Page` instead `onPopPage` method in `Navigator`
+🔧Use `onPopWithResult` instead `onPop` in `NavigatorPopHandler`
+
 ## 1.2.0
 
 ⚠️Now `breakPoint` is deprecated
-🌍Add width adjustment [#1](https://github.com/Cierra-Runis/based_widget/issues/1)
+🌍Add width adjustment [#1](https://github.com/Cierra-Runis/based_flutter/issues/1)
 
 ## 1.1.0
 
