@@ -1,11 +1,11 @@
 name: based_qr
 description: A Based QR code Widget, Which Helps You Create A Beautiful QR code
-version: 1.0.1
-homepage: https://github.com/Cierra-Runis/based_widget/tree/master/packages/based_qr
+version: 1.0.1+1
+homepage: https://github.com/Cierra-Runis/based_flutter/tree/master/packages/based_qr
 
 environment:
-  sdk: ">=3.1.5 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: '>=3.1.5 <4.0.0'
+  flutter: '>=1.17.0'
 
 dependencies:
   flutter:
