@@ -1,9 +1,7 @@
 <div align="center">
-  <img id="based_battery_indicator" width="96" alt="based_battery_indicator" src="https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_battery_indicator/icon.svg">
+  <img id="based_battery_indicator" width="96" alt="based_battery_indicator" src="https://raw.githubusercontent.com/Cierra-Runis/based_flutter/master/.github/imgs/based_battery_indicator/icon.svg">
   <p>『 based_battery_indicator - Based Battery Indicator! 』</p>
 </div>
-
-`Latest update: 2023-07-27 16:30:49`
 
 [📚 Introduction](#-Introduction)
 
@@ -29,9 +27,9 @@ Inspired by [cupertino_battery_indicator](https://pub.dev/packages/cupertino_bat
 
 # 📸 Screenshots
 
-![screenshot](https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_battery_indicator/screenshot.gif)
+![screenshot](https://raw.githubusercontent.com/Cierra-Runis/based_flutter/master/.github/imgs/based_battery_indicator/screenshot.gif)
 
-Or try out [live example app](https://note-of-me.top/based_widget/)
+Or try out [live example app](https://cierra-runis.github.io/based_flutter/)
 
 # 📦 How to use
 
@@ -52,7 +50,7 @@ BasedBatteryIndicator(
 ),
 ```
 
-- For more information, see the example code at [example](https://github.com/Cierra-Runis/based_widget/blob/master/example/lib/main.dart)
+- For more information, see the example code at [example](https://github.com/Cierra-Runis/based_flutter/blob/master/example/lib/main.dart)
 
 # ⏳ Rate of progress
 
@@ -64,12 +62,12 @@ None
 
 # 🧑‍💻 Contributor
 
-<a href="https://github.com/Cierra-Runis/based_widget/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_widget" />
+<a href="https://github.com/Cierra-Runis/based_flutter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_flutter" alt="contributors"/>
 </a>
 
 # 🔦 Declaration
 
-[![License](https://img.shields.io/github/license/Cierra-Runis/based_widget)](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/Cierra-Runis/based_flutter)](https://github.com/Cierra-Runis/based_flutter/blob/master/LICENSE)
 
-This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE) for more details
+This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_flutter/blob/master/LICENSE) for more details
