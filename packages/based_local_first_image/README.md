@@ -1,9 +1,7 @@
 <div align="center">
-  <img id="based_local_first_image" width="96" alt="based_local_first_image" src="https://raw.githubusercontent.com/Cierra-Runis/based_widget/master/.github/imgs/based_local_first_image/icon.svg">
+  <img id="based_local_first_image" width="96" alt="based_local_first_image" src="https://raw.githubusercontent.com/Cierra-Runis/based_flutter/master/.github/imgs/based_local_first_image/icon.svg">
   <p>『 based_local_first_image - Based Local First Image! 』</p>
 </div>
-
-`Latest update: 2023-10-03 15:55:26`
 
 [📚 Introduction](#-Introduction)
 
@@ -47,12 +45,12 @@ Image(
 
 # 🧑‍💻 Contributor
 
-<a href="https://github.com/Cierra-Runis/based_widget/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_widget" alt="based_widget"/>
+<a href="https://github.com/Cierra-Runis/based_flutter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Cierra-Runis/based_flutter" alt="based_flutter"/>
 </a>
 
 # 🔦 Declaration
 
-[![License](https://img.shields.io/github/license/Cierra-Runis/based_widget)](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/Cierra-Runis/based_flutter)](https://github.com/Cierra-Runis/based_flutter/blob/master/LICENSE)
 
-This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_widget/blob/master/LICENSE) for more details
+This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/Cierra-Runis/based_flutter/blob/master/LICENSE) for more details
