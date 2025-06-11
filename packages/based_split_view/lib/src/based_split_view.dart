@@ -99,7 +99,8 @@ class _BasedSplitViewState extends State<BasedSplitView> {
   @override
   Widget build(BuildContext context) {
     return NavigatorPopHandler(
-      onPopWithResult: widget.navigatorKey.currentState?.maybePop,
+      onPopWithResult: (result) async =>
+          await widget.navigatorKey.currentState?.maybePop(result),
       child: LayoutBuilder(
         builder: (context, constraints) {
           final singleView = constraints.maxWidth <= widget.breakPoint;
