@@ -106,10 +106,10 @@ class _BasedSplitViewState extends State<BasedSplitView> {
 
           if (singleView) {
             return Navigator(
+              onPopPage: _onPopPage,
               key: widget.navigatorKey,
               pages: [
                 CupertinoPage(
-                  canPop: false,
                   child: widget.leftWidget,
                 ),
               ],
@@ -121,9 +121,9 @@ class _BasedSplitViewState extends State<BasedSplitView> {
           final rightWidget = ScaffoldMessenger(
             child: Navigator(
               key: widget.navigatorKey,
+              onPopPage: _onPopPage,
               pages: [
                 CupertinoPage(
-                  canPop: false,
                   child: Center(
                     child: widget.rightPlaceholder,
                   ),
@@ -184,5 +184,11 @@ class _BasedSplitViewState extends State<BasedSplitView> {
         constraints.maxWidth - widget.dividerWidth - widget.rightMinWidth;
 
     return clampDouble(leftWidth, min, max);
+  }
+
+  bool _onPopPage(Route<dynamic> route, dynamic result) {
+    /// Prevent to pop root page
+    if (route.isFirst) return false;
+    return route.didPop(result);
   }
 }

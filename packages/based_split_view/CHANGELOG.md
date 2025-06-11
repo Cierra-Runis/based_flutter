@@ -1,3 +1,7 @@
+## 1.2.2
+
+🔧Drop 1.2.1 Changes
+
 ## 1.2.1
 
 📖Update README.md to fix broken links
