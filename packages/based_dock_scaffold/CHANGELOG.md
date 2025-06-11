@@ -1,19 +1,23 @@
+## 1.0.3+1
+
+- 📖 Update README.md
+
 ## 1.0.3
 
-📖Update repo link
+- 📖 Update repo link
 
 ## 1.0.2+1
 
-📖Add web demo
+- 📖 Add web demo
 
 ## 1.0.2
 
-📖Improved the Readme
+- 📖 Improved the Readme
 
 ## 1.0.1
 
-📖Improved the comments
+- 📖 Improved the comments
 
 ## 1.0.0
 
-🌞Publish
+- 🌞 Publish
